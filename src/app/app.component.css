@@ -15,23 +15,6 @@ h5,
 h6 {
   margin: 8px 0;
 }
-button{
-  background-color: blue;
-  padding: 10px;
-  margin: 20px auto;
-  border-radius: 6px;
-  color: whitesmoke;
-}
-button:disabled{
-  background-color: whitesmoke;
-  color: grey;
-}
-button.delete{
-  background-color:orangered;
-  margin-left: 12px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
 .gender-selection{
   margin: 10px auto;
 }

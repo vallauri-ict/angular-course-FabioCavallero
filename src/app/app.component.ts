@@ -30,14 +30,14 @@ export class AppComponent {
   constructor(){
     for (let i = 0; i < 4; i++) {
       let num=Math.floor(Math.random()*this.studentRepository.length);
-      let tempStudent=this.studentRepository[num];
+      let tempStudent:any=this.studentRepository[num];
       this.studentList.push(tempStudent);
       this.studentRepository.splice(num,1);
     }
   }
   onAddStudent()
   {
-    let newStudent={name:this.studentName,hobby:this.studentHobby,gender:this.studentGender,isPro:true};
+    let newStudent:any={name:this.studentName,hobby:this.studentHobby,gender:this.studentGender,isPro:false};
     this.studentList.push(newStudent);
     this.studentName="";
     this.txtName.nativeElement.focus();
@@ -45,5 +45,9 @@ export class AppComponent {
   onDeleteStudent(index:number)
   {
     this.studentList.splice(index,1);
+  }
+  onStudentDeleteEvent(student:any)
+  {
+    this.studentList.splice(this.studentList.indexOf(student),1);
   }
 }
