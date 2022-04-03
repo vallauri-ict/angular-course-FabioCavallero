@@ -5,7 +5,8 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  @ViewChild("txtName") txtName !: ElementRef;
+  //Simile a let txtName = document.getElementById("txtName");
+  @ViewChild("txtName") txtName !: ElementRef; // ElementRef -> Tipo del txtName; il "!:" inizializza in questo pto invece che farlo nel costruttore
   //new elementRef(null);
   title = '5 INF B 2021/22';
   studentRepository=[
@@ -23,7 +24,7 @@ export class AppComponent {
     {name:'Margot Conlat', hobby: 'Volley', gender:'F', isPro:false}
   ]
   hobbies=['Yoga','IQOS','Volley','Calcio','Atletica','Sesso'];
-  studentList:any[]=[];
+  studentList:any[]=[]; // :any[] -> Vettore di qualunque tipo
   studentName:string="";
   studentGender:string="F";
   studentHobby:string="";
@@ -39,13 +40,15 @@ export class AppComponent {
   {
     let newStudent:any={name:this.studentName,hobby:this.studentHobby,gender:this.studentGender,isPro:false};
     this.studentList.push(newStudent);
-    this.studentName="";
-    this.txtName.nativeElement.focus();
+    this.studentName=""; 
+    this.studentHobby="";
+    this.studentGender="F"; //Pulisco i campi appena inseriti
+    this.txtName.nativeElement.focus(); //Mantengo il focus nella txtName
   }
-  onDeleteStudent(index:number)
+  /*onDeleteStudent(index:number)
   {
     this.studentList.splice(index,1);
-  }
+  }*/
   onStudentDeleteEvent(student:any)
   {
     this.studentList.splice(this.studentList.indexOf(student),1);

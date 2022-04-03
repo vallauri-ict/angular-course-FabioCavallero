@@ -31,7 +31,7 @@
   </div>
   <h2>Add student</h2>
   <label for="txtName"> Student name: </label>
-  <input type="text" id="txtName" #txtName [(ngModel)]="studentName">
+  <input type="text" id="txtName" #txtName [(ngModel)]="studentName"><!--[(ngModel)] -> Crea comunicazione bidirezionale tra .html e .ts-->
   <div class="gender-selection">
   <div>
     <input id="male" type="radio" value="M" name="gender" [(ngModel)]="studentGender">
@@ -43,9 +43,9 @@
   </div>
   </div>
   <select class="hobby-selection" [(ngModel)]="studentHobby">
-    <option *ngFor="let hobby of hobbies" [value]="hobby">{{hobby}}</option>
+    <option *ngFor="let hobby of hobbies" [value]="hobby">{{hobby}}</option><!-- [] -> Crea comunicazione unidirezionale da .ts a .html-->
   </select>
-  <button [disabled]="studentName.length==0" (click)="onAddStudent()">Add student</button>
+  <button [disabled]="studentName.length==0" (click)="onAddStudent()">Add student</button><!-- () -> Crea comunicazione unidirezionale da .html a .ts-->
   <h2>The students:</h2>
   <!-- <div *ngFor="let item of studentList">
     {{item.name}} - {{item.hobby}}
@@ -54,7 +54,8 @@
   <div class="student" *ngFor="let item of studentList; let i=index">
     <span>{{i+1}} =></span><!-- => è elemento grafico-->
     <!-- $event -> this.student -->
-    <app-student [student]="item"(studentDeleteEvent)="onStudentDeleteEvent($event)"></app-student>
+    <!-- <app-student> -> accediamo a tutto l'hmtl del componente student-->
+    <app-student [student]="item" (studentDeleteEvent)="onStudentDeleteEvent($event)"></app-student>
     <!-- <button class="delete" (click)="onDeleteStudent(i)">Delete</button> -->
   </div>
   <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">

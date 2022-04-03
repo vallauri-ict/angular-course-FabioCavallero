@@ -5,8 +5,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit {
-@Input()student:any;
-@Output()studentDeleteEvent= new EventEmitter<any>();
+@Input()student:any; //Variabile ricevuta in input e inizializzata dall'appComponent.html
+@Output()studentDeleteEvent= new EventEmitter<any>(); //Richedo all'appComponent.ts di eseguire questa funzione presente al suo interno
   constructor() {}
   ngOnInit(): void {
     this.randomStudentPro();
